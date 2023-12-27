@@ -1,0 +1,6 @@
+function var {
+  KEY_DIR=~/clients/keys
+  OUTPUT_DIR=~/clients/files
+	EASY_RSA_DIR=~/easy-rsa
+  BASE_CONFIG=~/clients/base.conf
+}
