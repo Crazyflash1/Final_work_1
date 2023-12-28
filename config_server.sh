@@ -1,5 +1,5 @@
 #!/bin/bash
-#Подгружаем переменные
+#load variables
 . ./variables
 var
 cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf $VPN_SERVER_DIR
