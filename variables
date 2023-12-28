@@ -1,6 +1,7 @@
 function var {
-  KEY_DIR=~/clients/keys
-  OUTPUT_DIR=~/clients/files
-	EASY_RSA_DIR=~/easy-rsa
-  BASE_CONFIG=~/clients/base.conf
+        KEY_DIR="/opt/clients/keys"
+        OUTPUT_DIR="/opt/clients/files"
+	EASY_RSA_DIR="/opt/easy-rsa"
+        BASE_CONFIG="/opt/clients/base.conf"
+	VPN_SERVER_DIR="/etc/openvpn/server/server.conf"
 }
