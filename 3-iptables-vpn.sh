@@ -1,6 +1,6 @@
-eth=$1
-proto=$2
-port=$3
+eth=$(ip -4 route ls | grep default | grep -Po '(?<=dev )(\S+)' | head -1)
+proto="udp"
+port=1194
 # OpenVpn
 sudo iptables -A INPUT -i "$eth" -m state --state NEW -p "$proto" --dport "$port" -j ACCEPT
 # Allow TUN interface connection to OpenVpn server
@@ -13,7 +13,7 @@ sudo iptables -A FORWARD -i "$eth" -o tun+ -m state --state RELATED,ESTABLISHED 
 iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o "$eth" -j MASQUERADE
 #открываем порты http,ssh,dns,vpn
 sudo iptables -A INPUT -p tcp -m multiport --dports 22,53,80,443 -j ACCEPT
-sudo iptables -A INPUT -p udp --dport 1194 -j ACCEPT
+sudo iptables -A INPUT -p udp --dport "$port" -j ACCEPT
 #закрываем входящий трафик
 sudo iptables -P INPUT DROP
 #dns
