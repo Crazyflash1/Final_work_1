@@ -1,8 +1,8 @@
 #!/bin/bash
 # First argument: Client identifier
-KEY_DIR=~/clients/keys
-OUTPUT_DIR=~/clients/files
-BASE_CONFIG=~/clients/base.conf
+#KEY_DIR=~/clients/keys
+#OUTPUT_DIR=~/clients/files
+#BASE_CONFIG=~/clients/base.conf
 cat ${BASE_CONFIG} \
 <(echo -e '<ca>') \
 ${KEY_DIR}/ca.crt \
