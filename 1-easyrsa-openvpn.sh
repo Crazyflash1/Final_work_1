@@ -1,15 +1,13 @@
 #!/bin/bash
-#Подгружаем переменные
-. ./Downloads/variables
+#load variables
+. ./variables
 var
 # устанавливаем easy-rsa и openvpn
-sudo apt-get update 
-sudo apt-get install easy-rsa openvpn
-#mkdir ~/easy-rsa/
+apt-get update
+apt-get install easy-rsa openvpn
+mkdir -p $KEY_DIR $OUTPUT_DIR $EASY_RSA_DIR
 ln -s /usr/share/easy-rsa/* $EASY_RSA_DIR
-chmod 700 $EASY_RSA_DIR
 cd $EASY_RSA_DIR
 ./easyrsa init-pki
 #создание файл запроса сертификата и ключ
-cd $EASY_RSA_DIR
 ./easyrsa gen-req server nopass
