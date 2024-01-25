@@ -1,0 +1,20 @@
+groups:
+- name: openvpn
+  rules:
+  - alert: openvpn-server
+    expr: node_systemd_unit_state{instance="158.160.111.237:9100",job="node",name="openvpn-server@server.service",state="active",type="notify"} == 0
+    for: 1m
+    annotations:
+      title: 'openvpn-server not active'
+      description: 'start openvpn-server'
+    labels:
+      severity: 'crit'
+
+  - alert: openvpn-service
+    expr: node_systemd_unit_state{instance="158.160.111.237:9100",job="node",name="openvpn.service",state="active",type="oneshot"} == 0
+    for: 1m
+    annotations:
+      title: 'openvpn service not active'
+      description: 'start openvpn service'
+    labels:
+      severity: 'crit'
