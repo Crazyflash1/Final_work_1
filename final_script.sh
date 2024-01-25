@@ -44,7 +44,8 @@ group nogroup
 persist-key
 persist-tun
 verb 3
-explicit-exit-notify 1" > $VPN_SERVER_DIR/server.conf
+explicit-exit-notify 1
+status /var/log/openvpn/openvpn-status.log" > $VPN_SERVER_DIR/server.conf
 
 echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
 sudo sysctl -p
